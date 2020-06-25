@@ -10,10 +10,9 @@ public class App {
 
         HttpServer server = HttpServer.create(new InetSocketAddress(8005), 0);
 
-        server.createContext("/students", new StudentHandler());
-        server.createContext("/mentors", new MentorHandler());
         server.createContext("/template", new TemplateHandler());
         server.createContext("/register", new RegisterHandler());
+        server.createContext("/users", new UserController());
         server.setExecutor(null);
         server.start();
 

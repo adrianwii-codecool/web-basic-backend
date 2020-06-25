@@ -2,7 +2,6 @@ package com.codecool;
 
 import com.codecool.dao.StudentsDAO;
 import com.codecool.model.Student;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.jtwig.JtwigModel;
@@ -10,8 +9,6 @@ import org.jtwig.JtwigTemplate;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class TemplateHandler implements HttpHandler {
@@ -22,7 +19,7 @@ public class TemplateHandler implements HttpHandler {
     }
 
     @Override
-    public void handle(HttpExchange exchange) throws IOException {
+    public void handle(HttpExchange exchange) {
 
         try {
             List<Student> students = this.studentsDao.getStudents();

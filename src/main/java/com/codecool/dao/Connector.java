@@ -7,7 +7,7 @@ public class Connector {
 
     private String user = ""; //TODO please provide your user password and connection string
     private String password = "";
-    private static final String CONNECTION_STRING = "jdbc:postgresql://ec2-54-228-251-117.eu-west-1.compute.amazonaws.com:5432/d2pnolek06prgm";
+    private static final String CONNECTION_STRING = "jdbc:postgresql://ec2-46-137-79-235.eu-west-1.compute.amazonaws.com:5432/d8c6uv529kaagk";
 
 
     public Connector() throws ClassNotFoundException {
