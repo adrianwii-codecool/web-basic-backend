@@ -7,7 +7,6 @@ import com.sun.net.httpserver.HttpHandler;
 import org.jtwig.JtwigModel;
 import org.jtwig.JtwigTemplate;
 
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 

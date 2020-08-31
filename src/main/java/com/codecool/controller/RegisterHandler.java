@@ -5,6 +5,7 @@ import com.codecool.model.Student;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import javax.crypto.SecretKeyFactory;
 import java.io.*;
 import java.net.URLDecoder;
 import java.sql.SQLException;

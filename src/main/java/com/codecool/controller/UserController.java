@@ -40,8 +40,6 @@ public class UserController implements HttpHandler {
         ObjectMapper mapper = new ObjectMapper();
         String response = "";
 
-        System.out.println(Arrays.toString(actions));
-        System.out.println(action);
         try {
             switch (action) {
                 case "add":
