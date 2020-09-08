@@ -1,5 +1,9 @@
 package com.codecool;
 
+import com.codecool.controller.LoginHandler;
+import com.codecool.controller.RegisterHandler;
+import com.codecool.controller.TemplateHandler;
+import com.codecool.controller.UserController;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -12,6 +16,7 @@ public class App {
 
         server.createContext("/template", new TemplateHandler());
         server.createContext("/register", new RegisterHandler());
+        server.createContext("/login", new LoginHandler());
         server.createContext("/users", new UserController());
         server.setExecutor(null);
         server.start();

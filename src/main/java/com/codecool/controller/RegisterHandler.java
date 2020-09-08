@@ -1,7 +1,9 @@
-package com.codecool;
+package com.codecool.controller;
 
 import com.codecool.dao.StudentsDAO;
+import com.codecool.helpers.Parser;
 import com.codecool.model.Student;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -29,7 +31,7 @@ public class RegisterHandler implements HttpHandler {
             InputStreamReader isr = new InputStreamReader(exchange.getRequestBody(), "utf-8");
             BufferedReader br = new BufferedReader(isr);
 
-            Map<String, String> data = parseFormData(br.readLine());
+            Map<String, String> data = Parser.parseFormData(br.readLine());
 
             Student student = new Student();
             student.setName(data.get("name"))
@@ -43,6 +45,7 @@ public class RegisterHandler implements HttpHandler {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
             response = "data saved";
         }
 
@@ -50,17 +53,5 @@ public class RegisterHandler implements HttpHandler {
         OutputStream os = exchange.getResponseBody();
         os.write(response.getBytes());
         os.close();
-    }
-
-    private static Map<String, String> parseFormData(String formData) throws UnsupportedEncodingException {
-        Map<String, String> map = new HashMap<>();
-        String[] pairs = formData.split("&");
-        for(String pair : pairs){
-            String[] keyValue = pair.split("=");
-            // We have to decode the value because it's urlencoded. see: https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms
-            String value = new URLDecoder().decode(keyValue[1], "UTF-8");
-            map.put(keyValue[0], value);
-        }
-        return map;
     }
 }
