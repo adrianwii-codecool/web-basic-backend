@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.controller;
 
 import com.codecool.dao.StudentsDAO;
 import com.codecool.model.Student;
